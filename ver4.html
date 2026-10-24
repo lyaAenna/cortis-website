@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORTIS | Color Outside the Lines</title>
+    <style>
+        /* Global Styles */
+        html {
+            scroll-behavior: smooth; /* Smooth sliding scroll */
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f4f4f4;
+        }
+
+        /* Top Fixed Navigation Bar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #1f1f1f;
+            border-bottom: 2px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px;
+            box-sizing: border-box;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #ff3b3b;
+            text-decoration: none;
+        }
+
+        /* Navigation Menu Items */
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            display: inline-block;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #ff3b3b;
+            color: #ffffff;
+            border-color: #ff3b3b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 59, 59, 0.3);
+        }
+
+        /* Page Section Styling */
+        section {
+            padding: 110px 40px 80px 40px; /* Offset for header height */
+            min-height: 100vh;
+            box-sizing: border-box;
+            border-bottom: 1px solid #222;
+        }
+
+        h1, h2 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: url('cortiscover.jpeg'); 
+            background-size: cover;     
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.65);
+            background-blend-mode: darken;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            margin: 0 0 10px 0;
+            color: #fff;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        /* Meaning Section */
+        .content-image {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid #444;
+            display: block;
+        }
+
+        /* Members Overview Grid */
+        .members-grid {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .member-thumb-card {
+            background-color: #1a1a1a;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 180px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .member-thumb-card:hover {
+            border-color: #ff3b3b;
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(255, 59, 59, 0.3);
+        }
+
+        .member-thumb-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .member-thumb-card span {
+            display: block;
+            padding: 12px 5px;
+            font-weight: bold;
+            font-size: 15px;
+            background: #1f1f1f;
+            letter-spacing: 1px;
+        }
+
+        /* Dedicated Individual Member Sections */
+        .member-detail-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #161616;
+        }
+
+        .member-card-box {
+            max-width: 850px;
+            width: 100%;
+            background-color: #1e1e1e;
+            border: 2px solid #ff3b3b;
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            gap: 35px;
+            align-items: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        }
+
+        .member-photo {
+            width: 250px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 2px solid #ff3b3b;
+        }
+
+        .member-bio {
+            flex: 1;
+        }
+
+        .member-bio h2 {
+            color: #ff3b3b;
+            font-size: 32px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .member-bio p {
+            line-height: 1.8;
+            font-size: 16px;
+            color: #ddd;
+            margin: 12px 0;
+        }
+
+        .member-bio strong {
+            color: #fff;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .member-card-box {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .member-photo {
+                width: 100%;
+                max-width: 240px;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Sticky Navigation Bar -->
+    <header id="header">
+        <a href="#home" class="logo">CORTIS</a>
+        <nav>
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#meaning" class="nav-link">Meaning</a>
+            <a href="#members" class="nav-link">Members</a>
+            <a href="#martin" class="nav-link">Martin</a>
+            <a href="#james" class="nav-link">James</a>
+            <a href="#juhoon" class="nav-link">Juhoon</a>
+            <a href="#keonho" class="nav-link">Keonho</a>
+            <a href="#seonghyeon" class="nav-link">Seonghyeon</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1 class="hero-title">WHAT IS CORTIS</h1>
+        <p class="hero-subtitle">BY: STAY</p>
+        <p>Welcome to the ultimate hub for everything CORTIS.</p>
+    </section>
+
+    <!-- Meaning Section -->
+    <section id="meaning">
+        <h2>Meaning</h2>
+        <img src="cortislogo.jpeg" alt="CORTIS Decoration" class="content-image">
+        <p><strong>CORTIS</strong> stands for "Color Outside the Lines," representing a 5-member South Korean boy group (Martin, James, Juhoon, Seonghyeon, and Keonho)[cite: 6].</p>
+        <p>It symbolizes thinking freely, breaking away from conventional standards, and self-produced creativity in music and video[cite: 6].</p>
+    </section>
+
+    <!-- Main Members Overview Section -->
+    <section id="members">
+        <h2>MEMBERS</h2>
+        <p>Click any member to jump down directly to their introductory profile:</p>
+        
+        <div class="members-grid">
+            <a href="#martin" class="member-thumb-card nav-link">
+                <img src="martin.jpeg" alt="Martin">
+                <span>Martin (Leader)</span>
+            </a>
+            <a href="#james" class="member-thumb-card nav-link">
+                <img src="james.jpeg" alt="James">
+                <span>James</span>
+            </a>
+            <a href="#juhoon" class="member-thumb-card nav-link">
+                <img src="juhoon.jpeg" alt="Juhoon">
+                <span>Juhoon</span>
+            </a>
+            <a href="#keonho" class="member-thumb-card nav-link">
+                <img src="keonho.jpeg" alt="Keonho">
+                <span>Keonho</span>
+            </a>
+            <a href="#seonghyeon" class="member-thumb-card nav-link">
+                <img src="seonghyeon.jpeg" alt="Seonghyeon">
+                <span>Seonghyeon</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 1. Dedicated Martin Section -->
+    <section id="martin" class="member-detail-section">
+        <div class="member-card-box">
+            <img src="martin.jpeg" alt="Martin" class="member-photo">
+            <div class="member-bio">
+                <h2>Martin (Leader)</h2>
+                <p><strong>Background:</strong> Canadian-Korean.</p>
+                <p><strong>Key Traits:</strong> Stands out for his extreme height (around 190 cm / 6'3").</p>
+                <p><strong>Role Focus:</strong> Primarily operates as the group's leader, main rapper, and vocalist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Dedicated James Section -->
+    <section id="james" class="member-detail-section">
+        <div class="member-card-box">
+            <img src="james.jpeg" alt="James" class="member-photo">
+            <div class="member-bio">
+                <h2>James</h2>
+                <p><strong>Background:</strong> Thai-Chinese / Taiwanese heritage, born in Hong Kong; he is the oldest member of the group (born 2005).</p>
+                <p><strong>Key Traits:</strong> A former member of the pre-debut group Trainee A who is highly multilingual, speaking five languages.</p>
+                <p><strong>Role Focus:</strong> Heavily involved as a main dancer, rapper, and vocalist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Dedicated Juhoon Section -->
+    <section id="juhoon" class="member-detail-section">
+        <div class="member-card-box">
+            <img src="juhoon.jpeg" alt="Juhoon" class="member-photo">
+            <div class="member-bio">
+                <h2>Juhoon</h2>
+                <p><strong>Background:</strong> South Korean.</p>
+                <p><strong>Key Traits:</strong> Worked as a child model before pursuing an idol career.</p>
+                <p><strong>Role Focus:</strong> Frequently highlighted as the group's visual alongside his work as a vocalist and rapper.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Dedicated Keonho Section -->
+    <section id="keonho" class="member-detail-section">
+        <div class="member-card-box">
+            <img src="keonho.jpeg" alt="Keonho" class="member-photo">
+            <div class="member-bio">
+                <h2>Keonho</h2>
+                <p><strong>Background:</strong> South Korean.</p>
+                <p><strong>Key Traits:</strong> The youngest member (maknae) of the group, born in February 2009, and a former competitive swimmer.</p>
+                <p><strong>Role Focus:</strong> Contributes as a versatile vocalist and dancer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Dedicated Seonghyeon Section -->
+    <section id="seonghyeon" class="member-detail-section">
+        <div class="member-card-box">
+            <img src="seonghyeon.jpeg" alt="Seonghyeon" class="member-photo">
+            <div class="member-bio">
+                <h2>Seonghyeon</h2>
+                <p><strong>Background:</strong> South Korean.</p>
+                <p><strong>Key Traits:</strong> Had one of the longest preparation periods in the group, training for 5 years before debuting.</p>
+                <p><strong>Role Focus:</strong> Delivers strong musicality as a main vocalist and dancer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Smooth Sliding Navigation -->
+    <script>
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                const headerHeight = document.getElementById('header').offsetHeight;
+
+                const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
